@@ -4,6 +4,6 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: dockerhhr/hello-world:0.0.2
+      tag: harryai/hello-world:v1.0.0
       registry: index.docker.io
 timeout: 60
