@@ -1,6 +1,7 @@
 FROM java:8
 VOLUME /tmp
-ADD ./hello-world-0.0.1-SNAPSHOT.jar app.jar
-RUN bash -c 'touch /app.jar'
-EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]
