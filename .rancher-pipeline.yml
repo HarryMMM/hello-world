@@ -5,6 +5,5 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: dockerhhr/hello-world:0.0.2
-      pushRemote: true
       registry: index.docker.io
 timeout: 60
