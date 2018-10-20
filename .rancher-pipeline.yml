@@ -2,7 +2,7 @@ stages:
 - name: build
   steps:
   - publishImageConfig:
-      dockerfilePath: ./docker/Dockerfile
+      dockerfilePath: ./Dockerfile
       buildContext: .
       tag: harryai/test/hello-world:v1
       pushRemote: true
