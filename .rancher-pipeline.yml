@@ -5,5 +5,5 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: harryai/hello-world:v1.0.0
-      registry: index.docker.io
+      registry: https://jy8ap06d.mirror.aliyuncs.com
 timeout: 60
