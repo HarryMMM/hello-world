@@ -52,6 +52,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>com.google.guava</groupId>-->
         <!--<artifactId>guava</artifactId>-->
@@ -72,10 +76,10 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <dockerHost>http://192.168.211.157:2375</dockerHost>
-                    <imageName>dockerhhr/hello-world</imageName>
+                    <dockerHost>http://192.168.211.160:2375</dockerHost>
+                    <imageName>192.168.211.160:5000/hello-world</imageName>
                     <imageTags>
-                        <imageTag>0.0.1</imageTag>
+                        <imageTag>0.0.3</imageTag>
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <dockerDirectory>${project.basedir}/docker</dockerDirectory>
@@ -86,6 +90,14 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
