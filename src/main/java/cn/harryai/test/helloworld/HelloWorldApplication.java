@@ -10,6 +10,9 @@ public class HelloWorldApplication {
 
 
     public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            System.out.println("我是个钩子！");
+        }));
         SpringApplication.run(HelloWorldApplication.class, args);
     }
 }
