@@ -20,24 +20,21 @@ public class CacheKeyGenerator implements KeyGenerator {
         if (params != null && params.length > 0) {
             for (int i = 0; i < params.length; i++) {
                 map.put("params" + i, params);
-
             }
 
         }
-        String key = JSONObject.toJSONString(map).toString();
+        String keyStr = JSONObject.toJSONString(map);
         byte[] hash = null;
-        String s;
+        String key;
         try {
-            hash = MessageDigest.getInstance("MD5").digest(key.getBytes("UTF-8"));
+            hash = MessageDigest.getInstance("MD5").digest(keyStr.getBytes("UTF-8"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        s = MD5Encoder.encode(hash);
-
+        key = MD5Encoder.encode(hash);
         System.out.println(key);
-        System.out.println(s);
-        return s;
+        return key;
     }
 }

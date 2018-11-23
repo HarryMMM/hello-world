@@ -56,7 +56,6 @@ public class HelloWorldController {
     @PostMapping("getUsers")
     @ResponseBody
     public List<User> getUser(@RequestBody List<String> ids) {
-        System.out.println(ids);
         return dbService.findUserByIds(ids);
     }
 

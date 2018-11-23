@@ -15,7 +15,6 @@ public class DBRepository {
     }
 
     public List<User> findByIds(List<String> ids) {
-        System.out.println("ids"+ids);
         List<User> usersList = new ArrayList<>();
         Map<String, User> usersMap = MockDB.getUsers();
         for (String id :
